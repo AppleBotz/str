@@ -53,3 +53,4 @@ async def get_uptime(client: Bot, msg: Message):
         "🤖 <b>Bot Status:</b>\n"
         f"• <b>Uptime:</b> <code>{uptime}</code>\n"
         f"• <b>Start Time:</b> <code>{START_TIME_ISO}</code>"
+    )
