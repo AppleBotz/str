@@ -115,7 +115,7 @@ async def generate_session(bot, msg, telethon=False):
     except KeyError:
         pass
     await client.disconnect()
-    await phone_code_msg.reply("✅** Successfully create {} string session.**\n\n╔══╦╗╔══╦═╦╦╗╔═╦══╦═╦══╗\n║╔╗║║║╔╗║╔╣╔╝║╔╣╔╗║╬╠╗╗║\n║╔╗║╚╣╠╣║╚╣╚╗║╚╣╠╣║╗╬╩╝║\n╚══╩═╩╝╚╩═╩╩╝╚═╩╝╚╩╩╩══╝\n\nBy @StringSessiontelegrambot".format("telethon" if telethon else "pyrogram"))
+    await phone_code_msg.reply("**__✅ Successfully {} string session.__**\n\n╔══╦╗╔══╦═╦╦╗╔═╦══╦═╦══╗\n║╔╗║║║╔╗║╔╣╔╝║╔╣╔╗║╬╠╗╗║\n║╔╗║╚╣╠╣║╚╣╚╗║╚╣╠╣║╗╬╩╝║\n╚══╩═╩╝╚╩═╩╩╝╚═╩╝╚╩╩╩══╝\n\nBy @StringSessiontelegrambot".format("telethon" if telethon else "pyrogram"))
 
 
 async def cancelled(msg):
