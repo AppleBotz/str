@@ -4,7 +4,7 @@ from time import time
 
 from Data import Data
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
@@ -30,7 +30,7 @@ async def start(bot, msg):
 
 
 @Client.on_message(filters.command("ping"))
-async def ping_pong(bot, msg):
+async def ping_pong(bot, msg: Messaage):
     start = time()
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
