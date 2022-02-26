@@ -29,7 +29,7 @@ async def start(bot, msg):
 	)
 
 
-@Bot.on_message(filters.command("ping"))
+@Client.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
     start = time()
     current_time = datetime.utcnow()
