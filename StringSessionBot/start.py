@@ -30,7 +30,7 @@ async def start(bot, msg):
 
 
 @Client.on_message(filters.command("ping"))
-async def ping_pong(client, msg):
+async def ping_pong(bot, msg):
     start = time()
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
