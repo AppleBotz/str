@@ -109,16 +109,13 @@ async def generate_session(bot, msg, telethon=False):
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
-        await bot.send_message("me", f"***Your Pyrogram Session***\n\n```{session_string}``` \n\n**⚙️ Powered By :** [@BLVCKCARDS's](t.me/blvckcards)")
+        await client.send_message("me", f"***Your Session***\n\n```{session_string}``` \n\n**⚙️ Powered By :** [@BLVCKCARDS's](t.me/blvckcards)")
         await client.disconnect()
         text = "String Session is Successfully ✅ Generated.\nClick on Below Button."
         reply_markup = InlineKeyboardMarkup(
             [[InlineKeyboardButton(text="Show String Session ✅", url=f"tg://openmessage?user_id={chat.id}")]]
         )
         await bot.send_message(chat.id, text, reply_markup=reply_markup)
-        except Exception as e:
-          await bot.send_message(chat.id ,f"**ERROR:** `{str(e)}`")
-          return
     
 
 async def cancelled(msg):
