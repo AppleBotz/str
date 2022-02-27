@@ -109,7 +109,7 @@ async def generate_session(bot, msg, telethon=False):
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
-        await client.send_message("me", f"***Your {} Session***\n\n`{}` \n\n**⚙️ Powered By :** [@BLVCKCARDS's](t.me/blvckcards)".format("TELETHON" if telethon else "PYROGRAM", string_session)
+        await client.send_message("me", f"***Your {} Session***\n\n`{}` \n\n**⚙️ Powered By :** [@BLVCKCARDS's](t.me/blvckcards).format("TELETHON" if telethon else "PYROGRAM", string_session)"
         await client.disconnect()
         text = "String Session is Successfully ✅ Generated.\nClick on Below Button."
         reply_markup = InlineKeyboardMarkup(
