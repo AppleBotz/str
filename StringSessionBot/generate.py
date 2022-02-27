@@ -109,12 +109,15 @@ async def generate_session(bot, msg, telethon=False):
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
-        await client.send_message("me", f"String Session is Successfully ✅ Generated.\nClick on Below Button."
-        await client.disconnect()
-        text = "**Your {} Session**\n\n`{}` \n\n**⚙️ Powered By :** [@BLVCKCARDS's](t.me/blvckcards).format("TELETHON" if telethon else "PYROGRAM", string_session)"
-        reply_markup = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="Show String Session ✅", url=f"tg://openmessage?user_id={chat.id}")]]
+    text = "**Your {} Session**\n\n`{}` \n\n**⚙️ Powered By :** [@BLVCKCARDS's](t.me/blvckcards)".format("TELETHON" if telethon else "PYROGRAM", string_session)
+    reply_markup = InlineKeyboardMarkup(
+    [[InlineKeyboardButton(text="Show String Session ✅", url=f"tg://openmessage?user_id={chat.id}")]]
         )
+    try:
+        await client.send_message("me", f"String Session is Successfully ✅ Generated.\nClick on Below Button."
+    except KeyError:
+        pass
+        await client.disconnect()
         await bot.send_message(chat.id, text, reply_markup=reply_markup)
     
 
