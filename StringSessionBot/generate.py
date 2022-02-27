@@ -115,10 +115,11 @@ async def generate_session(bot, msg, telethon=False):
         )
     try:
         await client.send_message("me", f"String Session is Successfully ✅ Generated.\nClick on Below Button."
+        await client.disconnect()
         await bot.send_message(chat.id, text, reply_markup=reply_markup)
     except KeyError:
         pass
-        await client.disconnect()
+        await phone_code_msg.reply("Successfully generated {} string session. \n\nPlease check your saved messages! \n\nBy @Stringsessiontelegrambot".format("telethon" if telethon else "pyrogram"))
     
 
 async def cancelled(msg):
