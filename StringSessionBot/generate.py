@@ -116,9 +116,9 @@ async def generate_session(bot, msg, telethon=False):
             [[InlineKeyboardButton(text="Show String Session ✅", url=f"tg://openmessage?user_id={chat.id}")]]
         )
         await bot.send_message(chat.id, text, reply_markup=reply_markup)
-    except Exception as e:
-        await bot.send_message(chat.id ,f"**ERROR:** `{str(e)}`")
-        return
+        except Exception as e:
+          await bot.send_message(chat.id ,f"**ERROR:** `{str(e)}`")
+          return
     
 
 async def cancelled(msg):
