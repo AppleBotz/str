@@ -109,14 +109,17 @@ async def generate_session(bot, msg, telethon=False):
         string_session = client.session.save()
     else:
         string_session = await client.export_session_string()
-    text = "**{} STRING SESSION** \n\n`{}` \n\n**Donate To Me For Support** @BLVCKCARDS".format("TELETHON" if telethon else "PYROGRAM", string_session)
-    try:
-        await bot.send_message(self, text)
-    except KeyError:
-        pass
-    await client.disconnect()
-    await phone_code_msg.reply("**__✅ Successfully {} string session.__**\n\n╔══╦╗╔══╦═╦╦╗╔═╦══╦═╦══╗\n║╔╗║║║╔╗║╔╣╔╝║╔╣╔╗║╬╠╗╗║\n║╔╗║╚╣╠╣║╚╣╚╗║╚╣╠╣║╗╬╩╝║\n╚══╩═╩╝╚╩═╩╩╝╚═╩╝╚╩╩╩══╝\n\nBy @StringSessiontelegrambot".format("telethon" if telethon else "pyrogram"))
-
+        await bot.send_message("me", f"***Your Pyrogram Session***\n\n```{session_string}``` \n\n**⚙️ Powered By :** [@BLVCKCARDS's](t.me/blvckcards)")
+        await client.disconnect()
+        text = "String Session is Successfully ✅ Generated.\nClick on Below Button."
+        reply_markup = InlineKeyboardMarkup(
+            [[InlineKeyboardButton(text="Show String Session ✅", url=f"tg://openmessage?user_id={chat.id}")]]
+        )
+        await bot.send_message(chat.id, text, reply_markup=reply_markup)
+    except Exception as e:
+        await bot.send_message(chat.id ,f"**ERROR:** `{str(e)}`")
+        return
+    
 
 async def cancelled(msg):
     if "/cancel" in msg.text:
